@@ -1,0 +1,18 @@
+
+.titulos{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 432px;
+    height: 70px;
+    border-radius: 15px;
+    box-shadow: 1px 2px 4px 0 rgb(0, 0, 0);
+}
+.titulo_categoria{    
+    font-size: 32px;
+    font-weight: bolder;
+    color: rgb(245, 245, 245);
+    padding: 30px;
+
+}

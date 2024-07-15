@@ -1,0 +1,25 @@
+.container{
+    width: 1420px;
+    height: 830px;
+    position: absolute;
+    top: 11vh;
+    display: flex;
+justify-content: space-evenly;
+align-items: center ;
+}
+
+.descripcion{
+    width: 45%;
+    color: white;
+}
+.tituloDescripcion{
+    font-size: 48px;
+}
+
+.textoDescripcion{
+    font-size: 18px;
+}
+
+.video{
+    width: 45%;
+}

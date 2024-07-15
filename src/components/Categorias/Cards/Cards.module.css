@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 430px;
+    height: 246px;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    margin: 5px;
+}
+.cotainer_video {
+    width: 100%;
+    min-width: 420px;
+    height: 100%;
+    border-radius: 15px 15px 0PX 0PX;
+    opacity: .9;    
+    border: none;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    background: transparent;
+    width: 95%;
+    height: 25%;
+    opacity: .7;
+    border-bottom-left-radius:15px ;
+    border-bottom-right-radius:15px ;
+    font-weight: bolder;
+    font-size: 16px;
+    color: rgb(254, 254, 254);
+
+}
+
+.botones figure{
+    cursor: pointer;
+}

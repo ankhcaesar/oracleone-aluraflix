@@ -1,0 +1,18 @@
+.container {
+    
+    width: 430px;
+    height: 246px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+
+}
+.cotainer_video {
+    width: 100%;
+    min-width: 420px;
+    height: 100%;
+    border-radius: 15px;
+    opacity: .9;    
+    border: none;
+}
