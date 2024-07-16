@@ -5,6 +5,7 @@ function Botones({ action, video, img, children }) {
 
             <button className={styles.botones}
                 onClick={() => (children === "BORRAR" ? action(video.id) : action(video))}
+                
             >
                 <img src={img} alt={`iconono de ${children}`} />
                 <p>{children}</p>

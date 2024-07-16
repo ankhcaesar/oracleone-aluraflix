@@ -4,11 +4,11 @@ import iconoEDITAR from "./lapiz.svg"
 import { useContext } from "react"
 import { GlobalContext } from "../../../context/Globalcontext"
 import Botones from "./Botones/Index"
-function Cards(video) {
 
+function Cards(video) {
     const {
         borrarVideo,
-        selectedVideo, setSelectedVideo
+        setvideoSeleccionado,
 
     } = useContext(GlobalContext)
 
@@ -33,7 +33,7 @@ function Cards(video) {
                 </Botones>
 
                 <Botones
-                    action={setSelectedVideo}
+                    action={setvideoSeleccionado}
                     video={video}
                     img={iconoEDITAR}
                 >EDITAR

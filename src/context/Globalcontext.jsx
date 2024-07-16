@@ -8,6 +8,9 @@ const GlobalContextProvider = ({ children }) => {
     const [botonHome, setBotonHome] = useState(true)
     const [botonNuevoVideo, setBotonNuevoVideo] = useState(false)
 
+    /** EstadoModal */
+
+
 
     const [imagenNv, setImagenNv] = useState("")
     const [tituloNv, setTituloNv] = useState("")
@@ -51,7 +54,41 @@ const GlobalContextProvider = ({ children }) => {
 
 
     /**Editar Video */
-    const [selectedVideo, setSelectedVideo] = useState(null);
+
+    const [videoSeleccionado, setvideoSeleccionado] = useState(null);
+
+    const cerrarModal = () => { setvideoSeleccionado(null) }
+
+    const manejarCambiosinput = (name, valor) => {
+        switch (name) {
+            case "titulo":
+                setTituloNv(value);
+                break;
+
+            case "descripcion":
+                setDescripcionNv(value);
+                break;
+
+            case "imagen":
+                setImagenNv(value);
+                break;
+
+            case "categoria":
+                setCategoriaNv(value);
+                break;
+
+            case "url":
+                setUrlNv(value);
+                break
+            default:
+                break;
+        }
+    }
+
+
+
+
+
 
 
     const actualizarVideoInfo = (data) => {
@@ -185,7 +222,9 @@ const GlobalContextProvider = ({ children }) => {
             categoriaNv, setCategoriaNv,
             urlNv, setUrlNv,
             descripcionNv, setDescripcionNv,
-            selectedVideo, setSelectedVideo,
+            videoSeleccionado, setvideoSeleccionado,
+            cerrarModal,
+            manejarCambiosinput,
             botonHome, setBotonHome,
             botonNuevoVideo, setBotonNuevoVideo
         }} >
