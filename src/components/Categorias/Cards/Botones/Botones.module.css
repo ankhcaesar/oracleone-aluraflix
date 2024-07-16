@@ -1,0 +1,15 @@
+
+.botones    {
+    height: 28px;
+    display: flex;
+    gap: 20px;
+    background: none;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+p{
+    color: rgb(254, 254, 254);
+    font-weight: bolder;
+}

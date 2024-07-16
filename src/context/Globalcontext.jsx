@@ -4,13 +4,18 @@ import { v4 as uuid } from "uuid"
 export const GlobalContext = createContext();
 const GlobalContextProvider = ({ children }) => {
 
+    /** estado de botones home y nuevo video */
+    const [botonHome, setBotonHome] = useState(true)
+    const [botonNuevoVideo, setBotonNuevoVideo] = useState(false)
+
+
     const [imagenNv, setImagenNv] = useState("")
     const [tituloNv, setTituloNv] = useState("")
     const [categoriaNv, setCategoriaNv] = useState("")
     const [urlNv, setUrlNv] = useState("")
     const [descripcionNv, setDescripcionNv] = useState("")
 
-    /*Importst categorias */
+    /*Importar categorias */
     const [categorias, setCategorias] = useState([]);
     useEffect(() => {
         const getData = async () => {
@@ -45,22 +50,51 @@ const GlobalContextProvider = ({ children }) => {
 
 
 
-    /** lleva una constante global  
-    const [origen, setOrigen]= useState([])
-    
-    useEffect(()=>{
-        const cambiar=()=>{
-            setOrigen("destacado")
-        }
-        cambiar()
-    
-    },[])
-    */
+    /**Editar Video */
+    const [selectedVideo, setSelectedVideo] = useState(null);
 
 
+    const actualizarVideoInfo = (data) => {
+        const {
+            imagenNv,
+            tituloNv,
+            categoriaNv,
+            urlNv,
+            descripcionNv,
+            id } = data;
 
+        const ActualizarVideo = {
+            titulo: tituloNv,
+            Categoria: categoriaNv,
+            imagen: imagenNv,
+            url: urlNv,
+            descripcion: descripcionNv,
+        };
 
-
+        fetch(
+            `http://localhost:3000/videos/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify(ActualizarVideo),
+            }
+        )
+            .then((result) => result.json())
+            .then((updatedVideoFromServer) => {
+                const newInfo = videos.map((video) => {
+                    if (video.id === id) {
+                        return updatedVideoFromServer;
+                    }
+                    return video;
+                });
+                setVideos(newInfo);
+            })
+            .catch((err) => {
+                console.error("Error: ", err);
+            });
+    };
 
     /** crea nuevo video */
     const crearVideo = (data) => {
@@ -106,8 +140,6 @@ const GlobalContextProvider = ({ children }) => {
     };
     /**fin crear video */
 
-
-
     /** borrarVideo */
     const borrarVideo = (id) => {
         fetch(
@@ -130,8 +162,6 @@ const GlobalContextProvider = ({ children }) => {
     };
     /**fin borrar video */
 
-
-
     /**limpiar inputs */
     const limpiarInput = () => {
         setTituloNv("");
@@ -139,24 +169,25 @@ const GlobalContextProvider = ({ children }) => {
         setDescripcionNv("");
         setImagenNv("");
         setUrlNv("");
-
     }
-
-
 
     return (
         <GlobalContext.Provider value={{
-            categorias,
-            videos,
-            destacados,
             crearVideo,
             borrarVideo,
             limpiarInput,
+            actualizarVideoInfo,
+            categorias,
+            videos,
+            destacados,
             imagenNv, setImagenNv,
             tituloNv, setTituloNv,
             categoriaNv, setCategoriaNv,
             urlNv, setUrlNv,
-            descripcionNv, setDescripcionNv
+            descripcionNv, setDescripcionNv,
+            selectedVideo, setSelectedVideo,
+            botonHome, setBotonHome,
+            botonNuevoVideo, setBotonNuevoVideo
         }} >
             {children}
         </GlobalContext.Provider>

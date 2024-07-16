@@ -5,10 +5,9 @@ function ListaOpciones(props) {
     const manejarCambio = (e) => {
         props.actualizarValor(e.target.value)
     }
-    
+
     return (
         <>
-
             <select
                 className={styles.form_option}
                 value={props.valor}
@@ -25,11 +24,3 @@ function ListaOpciones(props) {
     )
 }
 export default ListaOpciones
-
-
-
-/** 
-  {uno.map((res) => {
-                    <option key={res.id} value={res.categoria}>{res.categoria}</option>
-                })}
-*/

@@ -5,11 +5,9 @@ function Inicio() {
 
     return (
         <>
-            <Banner/>
+            <Banner />
             <Categorias />
         </>
     )
 }
-
-
 export default Inicio

@@ -1,7 +1,16 @@
 import styles from "./Cards.module.css"
-import iconoBorrar from "./tachito_blanco.svg"
-import iconoEditar from "./lapiz.svg"
+import iconoBORRAR from "./tachito_blanco.svg"
+import iconoEDITAR from "./lapiz.svg"
+import { useContext } from "react"
+import { GlobalContext } from "../../../context/Globalcontext"
+import Botones from "./Botones/Index"
 function Cards(video) {
+
+    const {
+        borrarVideo,
+        selectedVideo, setSelectedVideo
+
+    } = useContext(GlobalContext)
 
     return (
 
@@ -11,17 +20,27 @@ function Cards(video) {
                 borderColor: `rgb(${video.color})`,
             }}>
             <iframe
-                //frameborder="0" 
                 src={video.url}
                 title={video.titulo}
                 className={styles.cotainer_video}
             />
             <div className={styles.botones}>
-                <figure className={styles.boton_Borrar}> <img src={iconoBorrar} />BORRAR</figure>
-                <figure className={styles.boton_Editar}><img src={iconoEditar} />EDITAR</figure>
+                <Botones
+                    action={borrarVideo}
+                    video={video}
+                    img={iconoBORRAR}
+                >BORRAR
+                </Botones>
+
+                <Botones
+                    action={setSelectedVideo}
+                    video={video}
+                    img={iconoEDITAR}
+                >EDITAR
+                </Botones>
+
             </div>
         </div>
-
     )
 }
 

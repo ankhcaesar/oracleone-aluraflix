@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import styles from "./Heaader.module.css"
-import { useState } from "react"
-
-
+import { useContext } from "react"
+import { GlobalContext } from "../../context/Globalcontext"
 
 function Heaader({ img }) {
 
-    const [botonHome, setBotonHome] = useState(true)
-    const [botonNuevoVideo, setBotonNuevoVideo] = useState(false)
+    const {
+        botonHome, setBotonHome,
+        botonNuevoVideo, setBotonNuevoVideo
+    } = useContext(GlobalContext)
 
     const cambiarHome = () => {
         setBotonHome(!botonHome)
@@ -17,8 +18,6 @@ function Heaader({ img }) {
         setBotonNuevoVideo(!botonNuevoVideo)
         setBotonHome(!botonHome)
     }
-
-
     return (
         <header className={styles.heaader}>
             <Link to="/">

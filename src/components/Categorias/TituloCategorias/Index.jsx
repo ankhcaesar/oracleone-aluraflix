@@ -1,9 +1,6 @@
-
 import styles from "./TituloCategorias.module.css"
 
-
 function TituloCategorias({ categoria, color }) {
-
 
     return (
         <>
@@ -16,4 +13,3 @@ function TituloCategorias({ categoria, color }) {
     )
 }
 export default TituloCategorias
-

@@ -1,11 +1,20 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 80px 0px;
-    width: 100vw;
-    color: white;
+.dialogo {
+    position: absolute;
+    top: 30px;
+    width: 93%;
+    z-index: 4;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 5px solid #6bd1ff;
+    padding: 60px 12px;
+
+    @media (width > 1024px) {
+        width: 70%;
+        top: 50px;
+        padding: 60px 140px;
+    }
 }
+
 
 .tituloPrincipal {
     width: 83%;
@@ -38,6 +47,7 @@
     width: 83%;
     display: flex;
     justify-content: space-between;
+
     text-align: left;
     gap: 20px;
 }
