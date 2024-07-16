@@ -1,0 +1,23 @@
+.formulario {
+    width: 83%;
+    display: flex;
+    justify-content: space-between;
+
+    text-align: left;
+    gap: 20px;
+}
+
+.divisor {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin: 10px;
+}
